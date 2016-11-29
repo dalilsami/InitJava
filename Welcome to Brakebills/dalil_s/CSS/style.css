@@ -1,5 +1,5 @@
 html {
-    background: url('../images/background.jpg') no-repeat;
+    background: url('../images/background.jpg') no-repeat center fixed;
     -webkit-background-size: cover;
     background-size: cover;
 }
@@ -13,6 +13,32 @@ header h1 {
 }
 
 #form-container {
-    background-color: chocolate;
-    opacity: 0.55;
+    margin: auto;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    background-color: rgba(155, 80, 20, 0.45);
+}
+
+#form-container .input {
+    border: 1px solid rgb(220, 220, 220);
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    padding: 0 8px 0 8px;
+    width: 230px;
+    height: 35px;
+    background-color: rgba(250, 250, 250, 0.8);
+    font-size: 20px;
+    color: black;
+}
+
+#form-container .input:focus {
+    border-color: darkgray;
+    background-color: white;
+
+    -webkit-transition: background-color 0.25s;
+    -moz-transition: background-color 0.25s;
+    -o-transition: background-color 0.25s;
+    transition: background-color 0.25s;
 }
