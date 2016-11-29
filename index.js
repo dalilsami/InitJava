@@ -5,7 +5,7 @@ function display_form() {
 function connexion(){
 
     var login = document.getElementById("login").value;
-    var login.match(/[a-z]{2,6}_[a-z0-9]/);
+    login.match(/[a-z]{2,6}_[a-z0-9]/);
     var password = document.getElementById("password").value;
     var erreur = false;
     if (login != undefined )
@@ -17,7 +17,7 @@ function connexion(){
         erreur = true;
         var texte_erreur = document.createElement("p");
         document.getElementById("form-container").appendChild(texte_erreur);
-        texte_erreur.textContent("Le login n'est pas correcte");
+        texte_erreur.textContent = "Le login n'est pas correct";
     }
     if (password == "")
     {
