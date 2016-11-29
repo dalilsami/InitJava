@@ -8,9 +8,9 @@ function connexion(){
     var login.match(/[a-z]{2,6}_[a-z0-9]/);
     var password = document.getElementById("password").value;
     var erreur = false;
-    if (login =! undefined )
+    if (login != undefined )
     {
-
+        alert("hle");
     }
     else
     {
