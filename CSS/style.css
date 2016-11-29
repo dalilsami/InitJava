@@ -1,6 +1,6 @@
 body
 {
-    background: url('../background.jpg');
+    background: url('../background.jpg') no-repeat;
 }
 
 body h1
