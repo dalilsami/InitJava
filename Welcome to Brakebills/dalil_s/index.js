@@ -1,30 +1,3 @@
 function display_form() {
-    var div = document.createElement("div");
-    document.body.appendChild(div);
-    div.id = "form-container";
-    var form = document.createElement("form");
-    var login_div = document.createElement("div");
-    var password_div = document.createElement("div");
-    var login_lab = document.createElement("label");
-    var password_lab = document.createElement("label");
-    var login_input = document.createElement("input");
-    var password_input = document.createElement("input");
-    var submit = document.createElement("input");
-    div.appendChild(form);
-    login_div.appendChild(login_lab);
-    login_div.appendChild(login_input);
-    password_div.appendChild(password_lab);
-    password_div.appendChild(password_input);
-    form.appendChild(login_div);
-    form.appendChild(password_div);
-    form.appendChild(submit);
-    form.method = "post";
-    login_input.type = "text";
-    login_input.name = "login";
-    password_input.type = "text";
-    password_input.name = "password";
-    login_lab.innerHTML = "Login";
-    password_lab.innerHTML = "Password";
-    submit.type = "submit";
-    login_input.placeholder = "Monsieur Dalil";
+    document.getElementById("form-container").style.display = "block";
 }
