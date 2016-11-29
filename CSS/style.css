@@ -1,15 +1,18 @@
-body
-{
+html {
     background: url('../images/background.jpg') no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
 }
 
-body h1
-{
-    color: azure;
+header h1 {
     text-align: center;
 }
 
-#open
-{
+#open {
     display: inline-block;
+}
+
+#form-container {
+    background-color: chocolate;
+    opacity: 0.55;
 }
