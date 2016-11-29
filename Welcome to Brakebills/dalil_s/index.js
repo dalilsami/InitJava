@@ -1,25 +1,30 @@
-function    display_form() {
+function display_form() {
     var div = document.createElement("div");
     document.body.appendChild(div);
     div.id = "form-container";
     var form = document.createElement("form");
-    var label = document.createElement("label");
-    var label2 = document.createElement("label");
-    var input = document.createElement("input");
-    var input2 = document.createElement("input");
-    div.appendChild(form);
-    form.method = "post";
-    form.appendChild(label);
-    form.appendChild(input);
-    form.appendChild(label2);
-    form.appendChild(input2);
+    var login_div = document.createElement("div");
+    var password_div = document.createElement("div");
+    var login_lab = document.createElement("label");
+    var password_lab = document.createElement("label");
+    var login_input = document.createElement("input");
+    var password_input = document.createElement("input");
     var submit = document.createElement("input");
+    div.appendChild(form);
+    login_div.appendChild(login_lab);
+    login_div.appendChild(login_input);
+    password_div.appendChild(password_lab);
+    password_div.appendChild(password_input);
+    form.appendChild(login_div);
+    form.appendChild(password_div);
     form.appendChild(submit);
+    form.method = "post";
+    login_input.type = "text";
+    login_input.name = "login";
+    password_input.type = "text";
+    password_input.name = "password";
+    login_lab.innerHTML = "Login";
+    password_lab.innerHTML = "Password";
     submit.type = "submit";
-    input.type = "text";
-    input.name = "login";
-    input2.type = "text";
-    input2.name = "password";
-    label.innerHTML = "Login";
-    label2.innerHTML = "Password";
+    login_input.placeholder = "Monsieur Dalil";
 }
