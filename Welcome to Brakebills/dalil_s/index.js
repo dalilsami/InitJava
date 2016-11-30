@@ -26,10 +26,13 @@ function connexion() {
         form.appendChild(error);
     } else
         var error = document.getElementById("error");
-    if (login_preg != null && user_password == password)
+    if (login_preg != null && user_password == password) {
         alert("Vous allez être conduit à la page d'accueil.");
-    else {
+        document.cookie = "student =" + user_login;
+    }
+        else {
         connect = false;
+        document.cookie = "forbidden = true";
         var message = "";
         if (login_preg == null)
             message += "Le login n'est pas correct<br>";
