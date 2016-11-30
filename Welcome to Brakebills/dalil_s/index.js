@@ -15,7 +15,7 @@ function connexion() {
     else {
         connect = false;
         var erreur = document.createElement("div");
-        form.appendChild(div_erreur);
+        form.appendChild(erreur);
         erreur.textContent = "Le login n'est pas correct";
         return connect;
     }
