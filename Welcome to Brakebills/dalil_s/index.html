@@ -11,13 +11,13 @@
     <h1>Welcome to BrakeBills</h1>
 </header>
 <section id="form-container">
-    <form method="post">
+    <form onsubmit="return connexion()">
         <section class="form-title">Entrez vos identifiants</section>
         <section id="form-input">
             <input id="login-input" class="input-text" type="text" placeholder="Login">
             <input id="password-input" class="input-text" type="password" placeholder="Password">
         </section>
-        <input type="submit" class="input-submit" value="Connect">
+        <input type="submit" value="Connect">
     </form>
 </section>
 </body>
