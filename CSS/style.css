@@ -2,6 +2,7 @@ html {
     background: url('../images/background.jpg') no-repeat center fixed;
     -webkit-background-size: cover;
     background-size: cover;
+    font-family: Arial, sans-serif;
 }
 
 header h1 {
@@ -16,25 +17,36 @@ header h1 {
     display: none;
     margin: auto;
     padding: 20px;
-    width: 250px;
+    width: 290px;
     text-align: center;
-    background-color: rgba(155, 80, 20, 0.45);
+    background-color: rgba(185, 90, 40, 0.65);
 }
 
-#form-container .input {
+#form-container .form-title {
+    padding: 9px;
+    border-bottom: 1px solid rgb(180, 110, 35);
+    text-align: left;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+#form-input {
+    margin: 15px;
+}
+
+#form-container .input-text {
     border: 1px solid rgb(220, 220, 220);
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
     padding: 0 8px 0 8px;
     width: 230px;
-    height: 35px;
+    height: 42px;
     background-color: rgba(250, 250, 250, 0.8);
-    font-size: 20px;
-    color: black;
+    font-size: 18px;
 }
 
-#form-container .input:focus {
+#form-container .input-text:focus {
     border-color: darkgray;
     background-color: white;
 
@@ -42,4 +54,25 @@ header h1 {
     -moz-transition: background-color 0.25s;
     -o-transition: background-color 0.25s;
     transition: background-color 0.25s;
+}
+
+#form-container .input-submit {
+    border: 1px solid rgb(220, 220, 220);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    padding: 6px 13px 6px 13px;
+    width: 248px;
+    background-color: white;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+@-webkit-keyframes fadein {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
 }
