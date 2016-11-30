@@ -10,16 +10,15 @@ function connexion() {
     var user_password = document.getElementById("password-input").value;
     var password;
     var connect = true;
-    var time = new Date().toLocaleTimeString(de-AT);
-    alert(time);
+    var time = new Date().toLocaleTimeString();
 
-    if (time > "00:00:00" && time < "05:59:00")
+    if (time > "00:00:00 AM" && time < "05:59:00 AM")
         password = "Air";
-    else if (time > "06:00:00" && time < "11:59:00")
+    else if (time > "06:00:00 AM" && time < "11:59:00 AM")
         password = "Earth";
-    else if (time > "12:00:00" && time < "17:59:00")
+    else if (time > "12:00:00 AM" && time < "5:59:00 PM")
         password = "Fire";
-    else if (time > "18:00:00" && time < "23:59:00")
+    else if (time > "06:00:00 PM" && time < "11:59:00 PM")
         password = "Water";
     if (document.getElementById("error") === null) {
         var error = document.createElement("div");
@@ -41,6 +40,5 @@ function connexion() {
             message += "Le password n'est pas correct<br>";
         error.innerHTML = message;
     }
-    alert(password);
     return connect;
 }
