@@ -4,20 +4,21 @@ function display_form() {
 
 function connexion(){
 
-    var login = document.getElementById("login").value;
-    login.match(/[a-z]{2,6}_[a-z0-9]/);
-    var password = document.getElementById("password").value;
+    var login = document.getElementById("login-input").value;
+    var login_preg = login.match(/[a-z]{2,6}_[a-z0-9]/);
+    var password = document.getElementById("password-input").value;
     var erreur = false;
-    if (login != undefined )
+    if (login_preg != null)
     {
-        alert("hle");
+
     }
     else
     {
         erreur = true;
-        var texte_erreur = document.createElement("p");
-        document.getElementById("form-container").appendChild(texte_erreur);
-        texte_erreur.textContent = "Le login n'est pas correct";
+        var div_erreur = document.createElement("div");
+        document.body.appendChild(div_erreur);
+        div_erreur.textContent = "Le login n'est pas correct";
+        return false;
     }
     if (password == "")
     {
