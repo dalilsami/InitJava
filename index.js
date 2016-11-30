@@ -8,8 +8,10 @@ function connexion() {
     var user_login = document.getElementById("login-input").value;
     var login_preg = user_login.match(/[a-z]{2,6}_[a-z0-9]/);
     var user_password = document.getElementById("password-input").value;
+    var password;
     var connect = true;
     var time = new Date().toLocaleTimeString();
+
     if (time > "00:00:00" && time < "05:59:00")
         password = "Air";
     else if (time > "06:00:00" && time < "11:59:00")
@@ -18,24 +20,22 @@ function connexion() {
         password = "Fire";
     else if (time > "18:00:00" && time < "23:59:00")
         password = "Water";
-    var erreur = document.createElement("div");
-    form.appendChild(erreur);
-    erreur.textContent = "Le login n'est pas correct";
-    if (login_preg != null) {
-
+    if (document.getElementById("error") === null) {
+        alert("error");
+        var error = document.createElement("div");
+        error.setAttribute("id", "error");
+        form.appendChild(error);
     }
-    else {
-        connect = false;
-        form.appendChild(erreur);
-        erreur.textContent = "Le login n'est pas correct";
-    }
-    if (user_password == password)
+    if (login_preg != null && user_password == password)
         alert("Vous allez être conduit à la page d'accueil.");
     else {
         connect = false;
-        form.appendChild(erreur);
-        erreur.textContent = "Le password n'est pas correct";
+        var message = "";
+        if (login_preg == null)
+            message += "Le login n'est pas correct<br>";
+        if (user_password != password)
+            message += "Le password n'est pas correct<br>";
+        error.innerHTML = message;
     }
     return connect;
-
 }
