@@ -13,6 +13,7 @@ html {
 header h1 {
     font-family: Magic;
     text-align: center;
+    font-size: 65px;
 }
 
 #open {
