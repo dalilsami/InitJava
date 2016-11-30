@@ -17,13 +17,13 @@ function connexion() {
         var erreur = document.createElement("div");
         form.appendChild(erreur);
         erreur.textContent = "Le login n'est pas correct";
-        return connect;
+        return false;
     }
     if (password == "") {
 
     }
     else {
-        erreur = true;
+        connect = false;
         //message erreur passwd incorrect
     }
 
