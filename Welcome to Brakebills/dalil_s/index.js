@@ -10,7 +10,8 @@ function connexion() {
     var user_password = document.getElementById("password-input").value;
     var password;
     var connect = true;
-    var time = new Date().toLocaleTimeString();
+    var time = new Date().toLocaleTimeString(de-AT);
+    alert(time);
 
     if (time > "00:00:00" && time < "05:59:00")
         password = "Air";
@@ -40,5 +41,6 @@ function connexion() {
             message += "Le password n'est pas correct<br>";
         error.innerHTML = message;
     }
+    alert(password);
     return connect;
 }
