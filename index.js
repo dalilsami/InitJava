@@ -21,11 +21,11 @@ function connexion() {
     else if (time > "18:00:00" && time < "23:59:00")
         password = "Water";
     if (document.getElementById("error") === null) {
-        alert("error");
         var error = document.createElement("div");
         error.setAttribute("id", "error");
         form.appendChild(error);
-    }
+    } else
+        var error = document.getElementById("error");
     if (login_preg != null && user_password == password)
         alert("Vous allez être conduit à la page d'accueil.");
     else {
