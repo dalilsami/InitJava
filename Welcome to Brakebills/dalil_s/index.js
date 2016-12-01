@@ -44,6 +44,11 @@ function connexion() {
 }
 
 function cookie_exist() {
+    var n = 0;
     var cookie_name = document.cookie.split(";");
-    alert(cookie_name);
+    while (cookie_name[n] != undefined)
+    {
+        console.log(cookie_name[n]);
+        n++;
+    }
 }
