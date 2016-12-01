@@ -40,14 +40,12 @@ function display_form() {
 }
 
 function connexion() {
+    var time = new Date().toLocaleTimeString();
     var form = document.getElementById("form-container");
     var user_login = document.getElementById("login-input").value;
     var login_preg = user_login.match(/[a-z]{2,6}_[a-z0-9]/);
     var user_password = document.getElementById("password-input").value;
     var password;
-    var error;
-    var time = new Date().toLocaleTimeString();
-
     if (time > "00:00:00 AM" && time < "05:59:00 AM")
         password = "Air";
     else if (time > "06:00:00 AM" && time < "11:59:00 AM")
@@ -56,12 +54,14 @@ function connexion() {
         password = "Fire";
     else if (time > "06:00:00 PM" && time < "11:59:00 PM")
         password = "Water";
+    var error;
     if (document.getElementById("error") === null) {
         error = document.createElement("div");
         error.setAttribute("id", "error");
         form.appendChild(error);
     } else
         error = document.getElementById("error");
+
     if (login_preg != null && user_password == password)
         document.cookie = "student =" + user_login + "; max-age = 18000";
     else {
