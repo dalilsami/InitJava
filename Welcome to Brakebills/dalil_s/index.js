@@ -43,7 +43,7 @@ function connexion() {
     var login_preg = user_login.match(/[a-z]{2,6}_[a-z0-9]/);
     var user_password = document.getElementById("password-input").value;
     var password;
-    var connect = true;
+    var error;
     var time = new Date().toLocaleTimeString();
 
     if (time > "00:00:00 AM" && time < "05:59:00 AM")
@@ -55,17 +55,16 @@ function connexion() {
     else if (time > "06:00:00 PM" && time < "11:59:00 PM")
         password = "Water";
     if (document.getElementById("error") === null) {
-        var error = document.createElement("div");
+        error = document.createElement("div");
         error.setAttribute("id", "error");
         form.appendChild(error);
     } else
-        var error = document.getElementById("error");
+        error = document.getElementById("error");
     if (login_preg != null && user_password == password) {
         alert("Vous allez être conduit à la page d'accueil.");
         document.cookie = "student =" + user_login + "; max-age = 18000";
     }
     else {
-        connect = false;
         document.cookie = "forbidden = true; max-age = 21600";
         var message = "";
         if (login_preg == null)
@@ -73,7 +72,7 @@ function connexion() {
         if (user_password != password)
             message += "Le password n'est pas correct<br>";
         error.innerHTML = message;
-        return connect;
+        return false;
     }
 }
 
@@ -81,6 +80,9 @@ function cookie_exist() {
    var n = 0;
     var cookie_name = document.cookie.split("=");
     while (cookie_name[n] != undefined) {
+        if (cookie_name[n] == "forbidden" && cookie_name[n + 1] == "true")
+            return false;
+        console.log(cookie_name[n]);
         if (cookie_name[n] == "student")
            return window.location.replace("schedule.html");
         n++;
