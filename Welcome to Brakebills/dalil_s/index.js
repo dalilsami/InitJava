@@ -49,7 +49,7 @@ function cookie_exist() {
     while (cookie_name[n] != undefined)
     {
         if (cookie_name[n] == "student")
-            console.log(cookie_name[n]);
+            window.location.assign("schedule.html");
         n++;
     }
 }
