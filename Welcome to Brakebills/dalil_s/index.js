@@ -42,3 +42,7 @@ function connexion() {
     }
     return connect;
 }
+
+function cookie_exist() {
+    var cookie_name = "student ="
+}
