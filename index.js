@@ -28,7 +28,7 @@ function connexion() {
         var error = document.getElementById("error");
     if (login_preg != null && user_password == password) {
         alert("Vous allez être conduit à la page d'accueil.");
-        document.cookie = "student =" + user_login + "; max-age = 18000";
+        var cookie_user = document.cookie = "student =" + user_login + "; max-age = 18000";
     }
         else {
         connect = false;
@@ -40,7 +40,7 @@ function connexion() {
             message += "Le password n'est pas correct<br>";
         error.innerHTML = message;
     }
-    //cookie_exist();
+    cookie_exist2(cookie_user);
     return connect;
 }
 
@@ -53,4 +53,10 @@ function cookie_exist() {
             window.location.assign("schedule.html");
         n++;
     }
+}
+
+function cookie_exist2(cookie_user) {
+    if (cookie_user != undefined)
+        window.location.assign("schedule.html");
+
 }
