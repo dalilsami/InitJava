@@ -75,7 +75,6 @@ function connexion() {
         error.innerHTML = message;
         return connect;
     }
-    cookie_exist();
 }
 
 function cookie_exist() {
@@ -83,7 +82,9 @@ function cookie_exist() {
     var cookie_name = document.cookie.split("=");
     while (cookie_name[n] != undefined) {
         if (cookie_name[n] == "student")
-           window.location.replace("schedule.html");
+           return window.location.replace("schedule.html");
         n++;
     }
 }
+
+cookie_exist();
