@@ -1,46 +1,43 @@
 function display_form() {
-    function display_form() {
-        if (document.getElementById("form-container") === null) {
-            var container = document.createElement("SECTION");
-            var form = document.createElement("FORM");
-            var title = document.createElement("SECTION");
-            var input = document.createElement("SECTION");
-            var login = document.createElement("INPUT");
-            var password = document.createElement("INPUT");
-            var submit = document.createElement("INPUT");
+    if (document.getElementById("form-container") === null) {
+        var container = document.createElement("SECTION");
+        var form = document.createElement("FORM");
+        var title = document.createElement("SECTION");
+        var input = document.createElement("SECTION");
+        var login = document.createElement("INPUT");
+        var password = document.createElement("INPUT");
+        var submit = document.createElement("INPUT");
 
-            container.id = "form-container";
-            form.onsubmit = function () {
-                return connexion();
-            }
-            title.className = "form-title";
-            title.innerHTML = "Entrez vos identifiants";
-            input.id = "form-input";
-            login.id = "login-input";
-            login.className = "input-text";
-            login.setAttribute("type", "text");
-            login.setAttribute("placeholder", "Login");
-            password.id = "password-input";
-            password.className = "input-text";
-            password.setAttribute("type", "password");
-            password.setAttribute("placeholder", "password");
-            submit.className = "input-submit";
-            submit.setAttribute("type", "submit");
-            submit.value = "Connect";
+        container.id = "form-container";
+        form.onsubmit = function () {
+            return connexion();
+        };
+        title.className = "form-title";
+        title.innerHTML = "Entrez vos identifiants";
+        input.id = "form-input";
+        login.id = "login-input";
+        login.className = "input-text";
+        login.setAttribute("type", "text");
+        login.setAttribute("placeholder", "Login");
+        password.id = "password-input";
+        password.className = "input-text";
+        password.setAttribute("type", "password");
+        password.setAttribute("placeholder", "password");
+        submit.className = "input-submit";
+        submit.setAttribute("type", "submit");
+        submit.value = "Connect";
 
-            document.body.appendChild(container);
-            container.appendChild(form);
-            form.appendChild(title);
-            form.appendChild(input);
-            form.appendChild(submit);
-            input.appendChild(login);
-            input.appendChild(password);
-        }
+        document.body.appendChild(container);
+        container.appendChild(form);
+        form.appendChild(title);
+        form.appendChild(input);
+        form.appendChild(submit);
+        input.appendChild(login);
+        input.appendChild(password);
     }
 }
 
 function connexion() {
-
     var form = document.getElementById("form-container");
     var user_login = document.getElementById("login-input").value;
     var login_preg = user_login.match(/[a-z]{2,6}_[a-z0-9]/);
@@ -65,10 +62,10 @@ function connexion() {
         var error = document.getElementById("error");
     if (login_preg != null && user_password == password) {
         alert("Vous allez être conduit à la page d'accueil.");
-        var cookie_user = document.cookie = "student =" + user_login + "; max-age = 18000";
-        window.location.assign("schedule.html");
+        document.cookie = "student =" + user_login + "; max-age = 18000";
+        window.location.replace("schedule.html");
     }
-        else {
+    else {
         connect = false;
         document.cookie = "forbidden = true; max-age = 21600";
         var message = "";
@@ -84,8 +81,7 @@ function connexion() {
 function cookie_exist() {
     var n = 0;
     var cookie_name = document.cookie.split("=");
-    while (cookie_name[n] != undefined)
-    {
+    while (cookie_name[n] != undefined) {
         if (cookie_name[n] == "student")
             window.location.assign("schedule.html");
         n++;
