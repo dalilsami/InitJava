@@ -62,10 +62,8 @@ function connexion() {
         form.appendChild(error);
     } else
         error = document.getElementById("error");
-    if (login_preg != null && user_password == password) {
-        alert("Vous allez être conduit à la page d'accueil.");
+    if (login_preg != null && user_password == password)
         document.cookie = "student =" + user_login + "; max-age = 18000";
-    }
     else {
         document.cookie = "forbidden = true; max-age = 21600";
         var message = "";
@@ -74,7 +72,6 @@ function connexion() {
         if (user_password != password)
             message += "Le password n'est pas correct<br>";
         error.innerHTML = message;
-        return false;
     }
 }
 
