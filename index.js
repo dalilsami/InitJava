@@ -28,11 +28,11 @@ function connexion() {
         var error = document.getElementById("error");
     if (login_preg != null && user_password == password) {
         alert("Vous allez être conduit à la page d'accueil.");
-        document.cookie = "student =" + user_login;
+        document.cookie = "student =" + user_login"; max-age = 21600";
     }
         else {
         connect = false;
-        document.cookie = "forbidden = true";
+        document.cookie = "forbidden = true; max-age = 21600";
         var message = "";
         if (login_preg == null)
             message += "Le login n'est pas correct<br>";
