@@ -41,14 +41,11 @@ function connexion() {
         error.innerHTML = message;
     }
     return connect;
-}
-
-function cookie_exist() {
     var n = 0;
     var cookie_name = document.cookie.split(";");
     while (cookie_name[n] != undefined)
     {
-        if (cookie_name[n] == " student=smajov_d")
+        if (cookie_name[n] == " student=" + user_login)
             console.log(cookie_name[n]);
         n++;
     }
