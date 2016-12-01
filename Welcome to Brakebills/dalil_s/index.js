@@ -29,6 +29,7 @@ function connexion() {
     if (login_preg != null && user_password == password) {
         alert("Vous allez être conduit à la page d'accueil.");
         var cookie_user = document.cookie = "student =" + user_login + "; max-age = 18000";
+        alert(cookie_user);
         window.location.assign("schedule.html");
     }
         else {
