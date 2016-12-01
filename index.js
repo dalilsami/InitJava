@@ -40,7 +40,6 @@ function connexion() {
         if (user_password != password)
             message += "Le password n'est pas correct<br>";
         error.innerHTML = message;
-        alert(cookie_user);
     }
     return connect;
 }
