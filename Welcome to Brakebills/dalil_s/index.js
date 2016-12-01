@@ -68,10 +68,11 @@ function connexion() {
         document.cookie = "forbidden = true; max-age = 21600";
         var message = "";
         if (login_preg == null)
-            message += "Le login n'est pas correct<br>";
+            message += "login non valide, ";
         if (user_password != password)
-            message += "Le password n'est pas correct<br>";
-        error.innerHTML = message;
+            message += "password non valide, ";
+        message = message.charAt(0).toUpperCase() + message.slice(1);
+        alert(message + "\nessayez au prochain changement de mot de passe !");
     }
 }
 
