@@ -28,7 +28,7 @@ function connexion() {
         var error = document.getElementById("error");
     if (login_preg != null && user_password == password) {
         alert("Vous allez être conduit à la page d'accueil.");
-        document.cookie = "student =" + user_login + "; max-age = 21600";
+        document.cookie = "student =" + user_login + "; max-age = 18000";
     }
         else {
         connect = false;
