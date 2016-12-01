@@ -1,5 +1,42 @@
 function display_form() {
-    document.getElementById("form-container").style.display = "block";
+    function display_form() {
+        if (document.getElementById("form-container") === null) {
+            var container = document.createElement("SECTION");
+            var form = document.createElement("FORM");
+            var title = document.createElement("SECTION");
+            var input = document.createElement("SECTION");
+            var login = document.createElement("INPUT");
+            var password = document.createElement("INPUT");
+            var submit = document.createElement("INPUT");
+
+            container.id = "form-container";
+            form.onsubmit = function () {
+                return connexion();
+            }
+            title.className = "form-title";
+            title.innerHTML = "Entrez vos identifiants";
+            input.id = "form-input";
+            login.id = "login-input";
+            login.className = "input-text";
+            login.setAttribute("type", "text");
+            login.setAttribute("placeholder", "Login");
+            password.id = "password-input";
+            password.className = "input-text";
+            password.setAttribute("type", "password");
+            password.setAttribute("placeholder", "password");
+            submit.className = "input-submit";
+            submit.setAttribute("type", "submit");
+            submit.value = "Connect";
+
+            document.body.appendChild(container);
+            container.appendChild(form);
+            form.appendChild(title);
+            form.appendChild(input);
+            form.appendChild(submit);
+            input.appendChild(login);
+            input.appendChild(password);
+        }
+    }
 }
 
 function connexion() {
