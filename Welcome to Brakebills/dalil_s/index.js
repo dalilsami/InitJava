@@ -45,7 +45,7 @@ function connexion() {
 
 function cookie_exist() {
     var n = 0;
-    var cookie_name = document.cookie.split(";");
+    var cookie_name = document.cookie.split("=");
     while (cookie_name[n] != undefined)
     {
         if (cookie_name[n] == " student=")
