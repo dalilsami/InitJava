@@ -44,6 +44,6 @@ function connexion() {
 }
 
 function cookie_exist() {
-    var cookie_name = document.cooke.split(";");
+    var cookie_name = document.cookie.split(";");
     alert(cookie_name);
 }
