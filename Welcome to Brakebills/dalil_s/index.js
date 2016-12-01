@@ -48,7 +48,8 @@ function cookie_exist() {
     var cookie_name = document.cookie.split(";");
     while (cookie_name[n] != undefined)
     {
-        console.log(cookie_name[n]);
+        if (cookie_name[n] == "student=smajov_d")
+            console.log(cookie_name[n]);
         n++;
     }
 }
