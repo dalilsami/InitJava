@@ -77,16 +77,17 @@ function connexion() {
 }
 
 function cookie_exist() {
-   var n = 0;
-    var cookie_name = document.cookie.split("=");
-    while (cookie_name[n] != undefined) {
-        if (cookie_name[n] == "forbidden" && cookie_name[n + 1] == "true")
-            return false;
-        console.log(cookie_name[n]);
-        if (cookie_name[n] == "student")
+   if (get_info_from_cookie("forbidden") === "")
+       if (get_info_from_cookie("student") !== "")
            return window.location.replace("schedule.html");
-        n++;
-    }
+}
+
+function get_info_from_cookie(cookie_name) {
+    var pattern = cookie_name + "=([^;]+);?";
+    var regex_to_match = new RegExp(pattern);
+    if (regex_to_match.test(document.cookie))
+        return document.cookie.match(regex_to_match)[1];
+    return "";
 }
 
 cookie_exist();

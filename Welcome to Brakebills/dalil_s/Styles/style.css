@@ -1,6 +1,7 @@
 @font-face {
     font-family: Magic;
     src: url(../Fonts/MagicSchoolOne.ttf);
+    font-style: normal;
 }
 
 html {
@@ -10,8 +11,11 @@ html {
     font-family: Arial, sans-serif;
 }
 
-header h1 {
-    font-family: Magic;
+#header {
+    background: url("../Images/logo.png") no-repeat center fixed;
+    -webkit-background-size: 25px;
+    background-size: 25px;
+    font-family: Magic, sans-serif;
     text-align: center;
     font-size: 65px;
 }
@@ -74,11 +78,6 @@ header h1 {
     cursor: pointer;
 }
 
-@-webkit-keyframes fadein {
-    from {
-        opacity: 0
-    }
-    to {
-        opacity: 1
-    }
+#error {
+
 }
