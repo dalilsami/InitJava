@@ -39,7 +39,7 @@ function connexion() {
         if (user_password != password)
             message += "Le password n'est pas correct<br>";
         error.innerHTML = message;
-        if (cookie_user != undefined)
+        if (cookie_user == undefined)
             window.location.assign("schedule.html");
     }
     return connect;
