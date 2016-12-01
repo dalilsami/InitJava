@@ -40,7 +40,8 @@ function connexion() {
             message += "Le password n'est pas correct<br>";
         error.innerHTML = message;
     }
-    cookie_exist2(cookie_user);
+    if (cookie_user != undefined)
+        window.location.assign("schedule.html");
     return connect;
 }
 
@@ -53,10 +54,4 @@ function cookie_exist() {
             window.location.assign("schedule.html");
         n++;
     }
-}
-
-function cookie_exist2(cookie_user) {
-    if (cookie_user != undefined)
-        window.location.assign("schedule.html");
-
 }
