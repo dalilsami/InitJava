@@ -41,6 +41,7 @@ function connexion() {
         error.innerHTML = message;
     }
     return connect;
+    cookie_exist();
 }
 
 function cookie_exist() {
