@@ -44,5 +44,6 @@ function connexion() {
 }
 
 function cookie_exist() {
-    var cookie_name = "student ="
+    var cookie_name = document.cooke.split(";");
+    alert(cookie_name);
 }
