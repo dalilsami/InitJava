@@ -42,7 +42,3 @@ function connexion() {
     }
     return connect;
 }
-
-function redirect() {
-
-}
