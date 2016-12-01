@@ -1,0 +1,21 @@
+@font-face {
+    font-family: Magic;
+    src: url(../Fonts/MagicSchoolOne.ttf);
+    font-style: normal;
+}
+
+html {
+    background: url('../Images/background.jpg') no-repeat center fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+}
+
+#header {
+    background: url("../Images/logo.png") no-repeat center fixed;
+    -webkit-background-size: 25px;
+    background-size: 25px;
+    font-family: Magic, sans-serif;
+    text-align: center;
+    font-size: 65px;
+}
