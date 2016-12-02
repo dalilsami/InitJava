@@ -46,6 +46,7 @@ function connexion() {
 	var login_preg = user_login.match(/[a-z]{2,6}_[a-z0-9]/);
 	var user_password = document.getElementById("password-input").value;
 	var password;
+	var cookie_expire;
 	if (time > "00:00 AM" && time < "05:59 AM") {
         password = "Air";
         cookie_expire = 21540;
