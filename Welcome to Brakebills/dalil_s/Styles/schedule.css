@@ -74,6 +74,28 @@ body {
     border-bottom: 1px solid gold;
     border-left: 1px solid gold;
     border-right: 1px solid gold;
-    font-size: 22px;
+    width: 50%;
+    font-size: 26px;
     text-align: center;
+}
+
+.my_td {
+    width: 50%;
+}
+
+.lists {
+    margin: auto;
+    border-collapse: collapse;
+    width: 90%;
+    text-align: center;
+}
+
+.lists td {
+    border: 1px solid gold;
+}
+
+.lists th {
+    padding: 15px;
+    text-align: left;
+    font-size: 25px;
 }
