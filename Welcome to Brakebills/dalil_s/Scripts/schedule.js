@@ -42,31 +42,33 @@ function tomorrow() {
 			list_noninscrit.id = "non_inscrit";
 			while (resultat[n] != undefined) {
 				if (resultat[n]["registered"] == true) {
-					var div = document.createElement("div");
-					var div2 = document.createElement("div");
-					list_inscrit.appendChild(div);
-					list_inscrit.appendChild(div2);
-					div.textContent += resultat[n]['name'];
-					div2.textContent += resultat[n]['date'];
-					div.onclick = function () {
-						var copy_name = div;
-						var copy_date = div2;
-						list_noninscrit.appendChild(copy_name);
-						list_noninscrit.appendChild(copy_date);
+					var course = document.createElement("SECTION");
+					var discipline = document.createElement("SECTION");
+                    var schedule = document.createElement("SECTION");
+                    list_inscrit.appendChild(course);
+                    course.appendChild(discipline);
+					course.appendChild(schedule);
+					course.id = resultat[n]['name'];
+					discipline.innerHTML = resultat[n]['name'];
+					schedule.innerHTML = resultat[n]['date'];
+					discipline.onclick = function () {
+						var copy = course;
+						list_noninscrit.appendChild(copy);
 					};
 				}
 				else {
-					var div3 = document.createElement("div");
-					var div4 = document.createElement("div");
-					list_noninscrit.appendChild(div3);
-					list_noninscrit.appendChild(div4);
-					div3.textContent += resultat[n]['name'];
-					div4.textContent += resultat[n]['date'];
-					div3.onclick = function () {
-						var copy_name2 = div3;
-						var copy_date2 = div4;
-						list_inscrit.appendChild(copy_name2);
-						list_inscrit.appendChild(copy_date2);
+                    var course2 = document.createElement("SECTION");
+                    var discipline2 = document.createElement("SECTION");
+                    var schedule2 = document.createElement("SECTION");
+                    list_noninscrit.appendChild(course2);
+                    course2.appendChild(discipline2);
+                    course2.appendChild(schedule2);
+                    course2.id = resultat[n]['name'];
+                    discipline2.innerHTML = resultat[n]['name'];
+                    schedule2.innerHTML = resultat[n]['date'];
+					discipline2.onclick = function () {
+                        var copy = course;
+                        list_noninscrit.appendChild(copy);
 					};
 				}
 				n++;

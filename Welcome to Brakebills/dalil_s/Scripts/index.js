@@ -23,7 +23,7 @@ function display_form() {
 			password.id = "password-input";
 			password.className = "input-text";
 			password.setAttribute("type", "password");
-			password.setAttribute("placeholder", "password");
+			password.setAttribute("placeholder", "Password");
 			submit.className = "input-submit";
 			submit.setAttribute("type", "submit");
 			submit.value = "Connect";
@@ -73,7 +73,6 @@ function connexion() {
     var hours = new Date().getHours();
     var minutes = new Date().getMinutes();
     var current_time_second = ((hours*3600) + (minutes * 60));
-    alert(current_time_second);
 	if (login_preg != null && user_password == password)
 		document.cookie = "student =" + user_login + "; max-age =" + (cookie_expire - current_time_second);
 	else {
