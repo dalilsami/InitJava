@@ -1,5 +1,3 @@
-document.write("<script type='text/javascript' src='cookie.js'></script>" );
-
 function today() {
 	var requete = new XMLHttpRequest();
 
