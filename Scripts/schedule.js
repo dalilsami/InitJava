@@ -9,9 +9,9 @@ function today() {
 			var today = document.getElementById("today");
 
 			for (var i = 0; i < resultat.length; i++) {
-				var course = document.createElement("SECTION");
-				var discipline = document.createElement("SECTION");
-				var schedule = document.createElement("SECTION");
+				var course = document.createElement("TR");
+				var discipline = document.createElement("TD");
+				var schedule = document.createElement("TD");
 				var time = new Date(resultat[i]['date']).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
 
 				today.appendChild(course);
@@ -20,7 +20,7 @@ function today() {
 				course.id = resultat[i]['name'];
 				course.className = "course";
 				schedule.className = "course-element";
-				schedule.innerHTML = time + ": ";
+				schedule.innerHTML = time;
 				discipline.className = "course-element";
 				discipline.innerHTML = resultat[i]['name'];
 			}
