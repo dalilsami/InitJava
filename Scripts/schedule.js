@@ -11,7 +11,8 @@ function today() {
                 var div2 = document.createElement("div");
                 var horaire = new Date(resultat[n]['date']).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
                 document.body.appendChild(div);
-                document.body.appendChild(div2);
+                div.id = resultat[n]['name'];
+                document.getElementById(resultat[n]['name']).appendChild(div2);
                 div.textContent += resultat[n]['name'];
                 div2.textContent += horaire;
                 n++;
@@ -42,6 +43,12 @@ function tomorrow() {
                     list_inscrit.appendChild(div2);
                     div.textContent += resultat[n]['name'];
                     div2.textContent += resultat[n]['date'];
+                    div.onclick = function () {
+                        var copy_name = div;
+                        var copy_date = div2;
+                        list_noninscrit.appendChild(copy_name);
+                        list_noninscrit.appendChild(copy_date);
+                    };
                 }
                 else
                 {
@@ -51,6 +58,12 @@ function tomorrow() {
                     list_noninscrit.appendChild(div4);
                     div3.textContent += resultat[n]['name'];
                     div4.textContent += resultat[n]['date'];
+                    div3.onclick = function () {
+                        var copy_name2 = div3;
+                        var copy_date2 = div4;
+                        list_inscrit.appendChild(copy_name2);
+                        list_inscrit.appendChild(copy_date2);
+                    };
                 }
                 n++;
             }
