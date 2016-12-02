@@ -59,8 +59,9 @@ function tomorrow() {
 					course.id = resultat[i]['name'];
 					discipline.innerHTML = resultat[i]['name'];
 					schedule.innerHTML = resultat[i]['date'];
-					discipline.onclick = function () {
-						list_noninscrit.appendChild(course);
+					var matiere_click = document.getElementById(resultat[i]['name']);
+					matiere_click.onclick = function () {
+						list_noninscrit.appendChild(matiere_click);
 					};
 				}
 				else {
@@ -77,8 +78,9 @@ function tomorrow() {
 					course2.id = resultat[i]['name'];
 					discipline2.innerHTML = resultat[i]['name'];
 					schedule2.innerHTML = resultat[i]['date'];
-					discipline2.onclick = function () {
-						list_inscrit.appendChild(course2);
+                    var matiere_click2 = document.getElementById(resultat[i]['name']);
+					matiere_click2.onclick = function () {
+						list_inscrit.appendChild(matiere_click2);
 					};
 				}
 			}
