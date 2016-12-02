@@ -90,5 +90,4 @@ function get_info_from_cookie(cookie_name) {
 	return "";
 }
 
-document.getElementById("open").onclick = display_form();
 cookie_exist();

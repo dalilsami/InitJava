@@ -1,11 +1,11 @@
 @font-face {
-    font-family: Magic;
-    src: url(../Fonts/MagicSchoolOne.ttf);
+    font-family: Classy;
+    src: url(../Fonts/Butler_Light.otf);
     font-style: normal;
 }
 
 html {
-    background: url('../Images/background.jpg') no-repeat center fixed;
+    background: url('../Images/background-schedule.jpg') no-repeat center fixed;
     -webkit-background-size: cover;
     background-size: cover;
     font-family: Arial, sans-serif;
@@ -15,9 +15,10 @@ html {
     background: url("../Images/logo.png") no-repeat center fixed;
     -webkit-background-size: 25px;
     background-size: 25px;
-    font-family: Magic, sans-serif;
+    font-family: Classy, sans-serif;
     text-align: center;
     font-size: 65px;
+    color: white;
 }
 
 #day {
@@ -25,7 +26,6 @@ html {
     font-size: 20px;
     margin-top: 100px;
     background-color: rgba(185, 90, 40, 0.65);
-    display: inline-block;
 }
 
 .option {
