@@ -14,9 +14,9 @@ html {
 body {
     margin: 0;
 }
+
 #header {
-    -webkit-background-size: 25px;
-    background-size: 25px;
+    margin: 20px;
     text-align: center;
     font-size: 65px;
     color: white;
@@ -27,15 +27,23 @@ body {
 }
 
 #day ul {
+    margin: 0;
     padding: 0;
 }
 
 .option {
-    display: inline;
     float: left;
+    padding-top: 15px;
+    padding-bottom: 15px;
     border: 1px solid gold;
+    border-top-left-radius: 20px;
+    -webkit-border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    -webkit-border-top-right-radius: 20px;
     width: calc(50% - 2px);
-    height: 75px;
-    background-color: white;
-    font-size: 20px;
+    height: 32px;
+    background-color: rgba(25, 25, 25, 0.55);
+    list-style-type: none;
+    font-size: 30px;
+    color: white;
 }
