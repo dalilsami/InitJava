@@ -22,6 +22,11 @@ body {
     font-size: 65px;
 }
 
+#header img {
+    width: 48px;
+    margin-right: 16px;
+}
+
 #day {
     text-align: center;
 }
