@@ -37,55 +37,64 @@ function tomorrow() {
 		if (requete.readyState == 4 && requete.status == 200) {
 			var resultat = eval('(' + requete.responseText + ')');
 			var tomorrow = document.getElementById("tomorrow");
-			var list_inscrit = document.createElement("ul");
-			var list_noninscrit = document.createElement("ul");
+			var td1 = document.createElement("TD");
+			var td2 = document.createElement("TD");
+			var table_registered = document.createElement("TABLE");
+			var table_unregistered = document.createElement("TABLE");
+			var th_registered = document.createElement("TH");
+			var th_unregistered = document.createElement("TH");
 
-			tomorrow.appendChild(list_inscrit);
-			tomorrow.appendChild(list_noninscrit);
-			list_inscrit.id = "inscrit";
-			list_noninscrit.id = "non_inscrit";
+			tomorrow.appendChild(td1);
+			tomorrow.appendChild(td2);
+			td1.appendChild(table_registered);
+			td1.className = "my_td";
+			td2.appendChild(table_unregistered);
+			td2.className = "my_td";
+			table_registered.appendChild(th_registered);
+			table_registered.id = "inscrit";
+			table_registered.className = "lists";
+			table_unregistered.appendChild(th_unregistered);
+			table_unregistered.id = "non-inscrit";
+			table_unregistered.className = "lists";
+			th_registered.innerHTML = "Inscrit";
+			th_unregistered.innerHTML = "Non inscrit";
 			for (var i = 0; i < resultat.length; i++) {
-				if (resultat[i]["registered"] == true) {
-					var course = document.createElement("SECTION");
-					var discipline = document.createElement("SECTION");
-					var schedule = document.createElement("SECTION");
+				var course = document.createElement("TR");
+				var discipline = document.createElement("TD");
+				var schedule = document.createElement("TD");
+				var time = new Date(resultat[i]['date']).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
+				var matiere_click;
 
-					list_inscrit.appendChild(course);
-					course.appendChild(discipline);
-					course.appendChild(schedule);
-					course.className = "course";
-					schedule.className = "course-element";
-					discipline.className = "course-element";
-					course.id = resultat[i]['name'];
-					discipline.innerHTML = resultat[i]['name'];
-					schedule.innerHTML = resultat[i]['date'];
-					var matiere_click = document.getElementById(resultat[i]['name']);
+				course.appendChild(schedule);
+				course.appendChild(discipline);
+				course.id = resultat[i]['name'];
+				course.className = "course";
+				schedule.className = "course-element";
+				schedule.innerHTML = time;
+				discipline.className = "course-element";
+				discipline.innerHTML = resultat[i]['name'];
+				if (resultat[i]["registered"] == true) {
+					table_registered.appendChild(course);
+					matiere_click = document.getElementById(resultat[i]['name']);
 					matiere_click.onclick = function () {
-						list_noninscrit.appendChild(matiere_click);
+						table_unregistered.appendChild(matiere_click);
 					};
 				}
 				else {
-					var course2 = document.createElement("SECTION");
-					var discipline2 = document.createElement("SECTION");
-					var schedule2 = document.createElement("SECTION");
-
-					list_noninscrit.appendChild(course2);
-					course2.appendChild(discipline2);
-					course2.appendChild(schedule2);
-					course2.className = "course";
-					schedule2.className = "course-element";
-					discipline2.className = "course-element";
-					course2.id = resultat[i]['name'];
-					discipline2.innerHTML = resultat[i]['name'];
-					schedule2.innerHTML = resultat[i]['date'];
-                    var matiere_click2 = document.getElementById(resultat[i]['name']);
-					matiere_click2.onclick = function () {
-						list_inscrit.appendChild(matiere_click2);
+					table_unregistered.appendChild(course);
+					matiere_click = document.getElementById(resultat[i]['name']);
+					matiere_click.onclick = function () {
+						table_registered.appendChild(matiere_click);
 					};
 				}
 			}
 		}
 	};
+}
+
+function deconnexion() {
+	document.cookie = "student=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+	cookie_exist();
 }
 
 function show_today() {
@@ -103,19 +112,18 @@ function show_tomorrow() {
 }
 
 function cookie_exist() {
-        if (get_info_from_cookie("student") === "")
-            return window.location.replace("index.html");
+	if (get_info_from_cookie("student") === "")
+		return window.location.replace("index.html");
 }
 
 function get_info_from_cookie(cookie_name) {
-    var pattern = cookie_name + "=([^;]+);?";
-    var regex_to_match = new RegExp(pattern);
-    if (regex_to_match.test(document.cookie))
-        return document.cookie.match(regex_to_match)[1];
-    return "";
+	var pattern = cookie_name + "=([^;]+);?";
+	var regex_to_match = new RegExp(pattern);
+	if (regex_to_match.test(document.cookie))
+		return document.cookie.match(regex_to_match)[1];
+	return "";
 }
 
 cookie_exist();
-
 today();
 tomorrow();
