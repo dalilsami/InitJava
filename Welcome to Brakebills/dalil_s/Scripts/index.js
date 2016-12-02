@@ -72,7 +72,7 @@ function connexion() {
         if (user_password != password)
             message += "password non valide, ";
         message = message.charAt(0).toUpperCase() + message.slice(1);
-        alert(message + "\nessayez au prochain changement de mot de passe !");
+        alert(password +message + "\nessayez au prochain changement de mot de passe !");
     }
 }
 
