@@ -100,5 +100,20 @@ function show_tomorrow() {
 	document.getElementById("today-o").style.background = "rgba(25, 25, 25, 0.55)";
 }
 
+function cookie_exist() {
+        if (get_info_from_cookie("student") === "")
+            return window.location.replace("index.html");
+}
+
+function get_info_from_cookie(cookie_name) {
+    var pattern = cookie_name + "=([^;]+);?";
+    var regex_to_match = new RegExp(pattern);
+    if (regex_to_match.test(document.cookie))
+        return document.cookie.match(regex_to_match)[1];
+    return "";
+}
+
+cookie_exist();
+
 today();
 tomorrow();
