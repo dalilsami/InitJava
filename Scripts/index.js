@@ -40,20 +40,28 @@ function display_form() {
 }
 
 function connexion() {
-	var time = new Date().toLocaleTimeString();
+	var time = new Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
 	var form = document.getElementById("form-container");
 	var user_login = document.getElementById("login-input").value;
 	var login_preg = user_login.match(/[a-z]{2,6}_[a-z0-9]/);
 	var user_password = document.getElementById("password-input").value;
 	var password;
-	if (time > "00:00:00 AM" && time < "05:59:00 AM")
-		password = "Air";
-	else if (time > "06:00:00 AM" && time < "11:59:00 AM")
-		password = "Earth";
-	else if (time > "12:00:00 AM" && time < "5:59:00 PM")
-		password = "Fire";
-	else if (time > "06:00:00 PM" && time < "11:59:00 PM")
-		password = "Water";
+	if (time > "00:00 AM" && time < "05:59 AM") {
+        password = "Air";
+        cookie_expire = 20124;
+    }
+	else if (time > "06:00 AM" && time < "11:59 AM") {
+        password = "Earth";
+        cookie_expire = 41724;
+    }
+	else if (time > "12:00 AM" && time < "5:59 PM") {
+        password = "Fire";
+        cookie_expire = 63324;
+    }
+	else if (time > "06:00 PM" && time < "11:59 PM") {
+        password = "Water";
+        cookie_expire = 84924;
+    }
 	var error;
 	if (document.getElementById("error") === null) {
 		error = document.createElement("div");
@@ -62,10 +70,14 @@ function connexion() {
 	} else
 		error = document.getElementById("error");
 
+    var hours = new Date().getHours();
+    var minutes = new Date().getMinutes();
+    var current_time_second = ((hours*3600) + (minutes * 60));
+    alert(current_time_second);
 	if (login_preg != null && user_password == password)
-		document.cookie = "student =" + user_login + "; max-age = 18000";
+		document.cookie = "student =" + user_login + "; max-age =" + (cookie_expire - current_time_second);
 	else {
-		document.cookie = "forbidden = true; max-age = 21600";
+		document.cookie = "forbidden = true; max-age=" + (cookie_expire - current_time_second);
 		var message = "";
 		if (login_preg == null)
 			message += "login non valide, ";
