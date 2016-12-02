@@ -5,17 +5,15 @@ function today() {
 	requete.onreadystatechange = function () {
 		if (requete.readyState == 4 && requete.status == 200) {
 			var resultat = eval('(' + requete.responseText + ')');
-			var n = 0;
-			while (resultat[n] != undefined) {
-				var div = document.createElement("div");
-				var div2 = document.createElement("div");
-				var horaire = new Date(resultat[n]['date']).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
-				document.body.appendChild(div);
-				div.id = resultat[n]['name'];
-				document.getElementById(resultat[n]['name']).appendChild(div2);
-				div.textContent += resultat[n]['name'];
-				div2.textContent += horaire;
-				n++;
+			for(var i = 0; i < resultat.length; i++) {
+				var course = document.createElement("div");
+				var time = document.createElement("div");
+				var horaire = new Date(resultat[i]['date']).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
+				document.body.appendChild(course);
+				course.id = resultat[i]['name'];
+				document.getElementById(resultat[i]['name']).appendChild(time);
+				course.textContent += resultat[i]['name'];
+				time.textContent += horaire;
 			}
 		}
 	}
