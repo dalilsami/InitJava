@@ -19,7 +19,7 @@ function today() {
 				course.appendChild(discipline);
 				course.id = resultat[i]['name'];
 				course.className = "course";
-                schedule.className = "course-element";
+				schedule.className = "course-element";
 				schedule.innerHTML = time + ": ";
 				discipline.className = "course-element";
 				discipline.innerHTML = resultat[i]['name'];
@@ -30,60 +30,60 @@ function today() {
 
 function tomorrow() {
 	var requete = new XMLHttpRequest();
+
 	requete.open('GET', 'http://40.115.42.10:80/api/dalil_s/62ac98a8-62a5-47f7-b972-4e00db6663d1/classes');
 	requete.send();
 	requete.onreadystatechange = function () {
 		if (requete.readyState == 4 && requete.status == 200) {
 			var resultat = eval('(' + requete.responseText + ')');
-			var n = 0;
+			var tomorrow = document.getElementById("tomorrow");
 			var list_inscrit = document.createElement("ul");
 			var list_noninscrit = document.createElement("ul");
-			document.body.appendChild(list_inscrit);
+
+			tomorrow.appendChild(list_inscrit);
+			tomorrow.appendChild(list_noninscrit);
 			list_inscrit.id = "inscrit";
-			document.body.appendChild(list_noninscrit);
 			list_noninscrit.id = "non_inscrit";
-			while (resultat[n] != undefined) {
-				if (resultat[n]["registered"] == true) {
+			for (var i = 0; i < resultat.length; i++) {
+				if (resultat[i]["registered"] == true) {
 					var course = document.createElement("SECTION");
 					var discipline = document.createElement("SECTION");
 					var schedule = document.createElement("SECTION");
+
 					list_inscrit.appendChild(course);
 					course.appendChild(discipline);
 					course.appendChild(schedule);
-                    course.className = "course";
-                    schedule.className = "course-element";
-                    discipline.className = "course-element";
-					course.id = resultat[n]['name'];
-					discipline.innerHTML = resultat[n]['name'];
-					schedule.innerHTML = resultat[n]['date'];
+					course.className = "course";
+					schedule.className = "course-element";
+					discipline.className = "course-element";
+					course.id = resultat[i]['name'];
+					discipline.innerHTML = resultat[i]['name'];
+					schedule.innerHTML = resultat[i]['date'];
 					discipline.onclick = function () {
-						var copy = course;
-						list_noninscrit.appendChild(copy);
+						list_noninscrit.appendChild(course);
 					};
 				}
 				else {
 					var course2 = document.createElement("SECTION");
 					var discipline2 = document.createElement("SECTION");
 					var schedule2 = document.createElement("SECTION");
+
 					list_noninscrit.appendChild(course2);
 					course2.appendChild(discipline2);
 					course2.appendChild(schedule2);
-                    course2.className = "course";
-                    schedule2.className = "course-element";
-                    discipline2.className = "course-element";
-					course2.id = resultat[n]['name'];
-					discipline2.innerHTML = resultat[n]['name'];
-					schedule2.innerHTML = resultat[n]['date'];
+					course2.className = "course";
+					schedule2.className = "course-element";
+					discipline2.className = "course-element";
+					course2.id = resultat[i]['name'];
+					discipline2.innerHTML = resultat[i]['name'];
+					schedule2.innerHTML = resultat[i]['date'];
 					discipline2.onclick = function () {
-						var copy2 = course2;
-						list_inscrit.appendChild(copy2);
+						list_inscrit.appendChild(course2);
 					};
 				}
-				n++;
 			}
 		}
-		;
-	}
+	};
 }
 
 function show_today() {
