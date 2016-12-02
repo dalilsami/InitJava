@@ -1,27 +1,30 @@
 function today() {
 	var requete = new XMLHttpRequest();
-	requete.open('GET', 'http://40.115.42.10:80/api/smajov_d/cc8ed6db-ec38-444b-ba18-f68f58560068/schedule');
+	requete.open('GET', 'http://40.115.42.10:80/api/dalil_s/62ac98a8-62a5-47f7-b972-4e00db6663d1/schedule');
 	requete.send();
 	requete.onreadystatechange = function () {
 		if (requete.readyState == 4 && requete.status == 200) {
 			var resultat = eval('(' + requete.responseText + ')');
 			for (var i = 0; i < resultat.length; i++) {
-				var course = document.createElement("div");
-				var time = document.createElement("div");
+				var course = document.createElement("SECTION");
+				var discipline = document.createElement("SECTION");
+				var time = document.createElement("SECTION");
 				var horaire = new Date(resultat[i]['date']).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
+
 				document.body.appendChild(course);
-				course.id = resultat[i]['name'];
-				document.getElementById(resultat[i]['name']).appendChild(time);
-				course.textContent += resultat[i]['name'];
-				time.textContent += horaire;
+				course.appendChild(discipline);
+				discipline.id = resultat[i]['name'];
+				course.appendChild(time);
+				discipline.innerHTML = resultat[i]['name'];
+				time.innerHTML = horaire;
 			}
 		}
-	}
+	};
 }
 
 function tomorrow() {
 	var requete = new XMLHttpRequest();
-	requete.open('GET', 'http://40.115.42.10:80/api/smajov_d/cc8ed6db-ec38-444b-ba18-f68f58560068/classes');
+	requete.open('GET', 'http://40.115.42.10:80/api/dalil_s/62ac98a8-62a5-47f7-b972-4e00db6663d1/classes');
 	requete.send();
 	requete.onreadystatechange = function () {
 		if (requete.readyState == 4 && requete.status == 200) {
