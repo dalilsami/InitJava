@@ -13,14 +13,14 @@ function today() {
 				var time = new Date(resultat[i]['date']).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
 
 				today.appendChild(course);
-				course.appendChild(discipline);
 				course.appendChild(schedule);
+				course.appendChild(discipline);
 				course.id = resultat[i]['name'];
 				course.className = "course";
+				schedule.className = "course-element";
+				schedule.innerHTML = time + ": ";
 				discipline.className = "course-element";
 				discipline.innerHTML = resultat[i]['name'];
-				schedule.className = "course-element";
-				schedule.innerHTML = time;
 			}
 		}
 	};
