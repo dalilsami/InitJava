@@ -111,6 +111,6 @@ function show_tomorrow() {
 	document.getElementById("today-o").style.background = "rgba(25, 25, 25, 0.55)";
 }
 
-cookie_exist();
+cookie_exist_schedule();
 today();
 tomorrow();

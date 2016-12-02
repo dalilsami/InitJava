@@ -88,4 +88,4 @@ function connexion() {
 	}
 }
 
-cookie_exist();
+cookie_exist_index();
