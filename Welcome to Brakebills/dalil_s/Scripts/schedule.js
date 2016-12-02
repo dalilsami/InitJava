@@ -5,7 +5,7 @@ function today() {
 	requete.onreadystatechange = function () {
 		if (requete.readyState == 4 && requete.status == 200) {
 			var resultat = eval('(' + requete.responseText + ')');
-			for(var i = 0; i < resultat.length; i++) {
+			for (var i = 0; i < resultat.length; i++) {
 				var course = document.createElement("div");
 				var time = document.createElement("div");
 				var horaire = new Date(resultat[i]['date']).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
