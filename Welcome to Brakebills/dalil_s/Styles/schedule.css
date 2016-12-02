@@ -34,3 +34,8 @@ nav li
     text-decoration: none;
     margin: 50px;
 }
+
+ul
+{
+    display: inline-block;
+}
