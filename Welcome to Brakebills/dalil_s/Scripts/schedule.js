@@ -63,33 +63,37 @@ function tomorrow() {
 				var discipline = document.createElement("TD");
 				var schedule = document.createElement("TD");
 				var time = new Date(resultat[i]['date']).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
-				var matiere_click;
 
 				course.appendChild(schedule);
 				course.appendChild(discipline);
 				course.id = resultat[i]['name'];
 				course.className = "course";
+				course.onclick = function () {
+					change_list(this);
+				};
 				schedule.className = "course-element";
 				schedule.innerHTML = time;
 				discipline.className = "course-element";
 				discipline.innerHTML = resultat[i]['name'];
-				if (resultat[i]["registered"] == true) {
+				if (resultat[i]["registered"] == true)
 					table_registered.appendChild(course);
-					matiere_click = document.getElementById(resultat[i]['name']);
-					matiere_click.onclick = function () {
-						table_unregistered.appendChild(matiere_click);
-					};
-				}
-				else {
+				else
 					table_unregistered.appendChild(course);
-					matiere_click = document.getElementById(resultat[i]['name']);
-					matiere_click.onclick = function () {
-						table_registered.appendChild(matiere_click);
-					};
-				}
 			}
 		}
 	};
+}
+
+function change_list(node) {
+	var new_parent_id;
+	if (node.parentNode.id === "inscrit")
+		new_parent_id = "non-inscrit";
+	else
+		new_parent_id = "inscrit";
+	console.log(node.parentNode.id + " " + node.id + " " + new_parent_id);
+	var detached_course = node.parentNode.removeChild(node);
+	var table = document.getElementById(new_parent_id);
+	table.appendChild(detached_course);
 }
 
 function deconnexion() {
