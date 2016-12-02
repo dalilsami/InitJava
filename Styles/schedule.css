@@ -42,7 +42,7 @@ body {
     -webkit-border-top-right-radius: 20px;
     width: calc(50% - 2px);
     height: 32px;
-    background-color: rgba(25, 25, 25, 0.55);
+    background: rgba(25, 25, 25, 0.55);
     list-style-type: none;
     font-size: 30px;
 }
@@ -57,6 +57,10 @@ body {
     -webkit-border-top-right-radius: 20px;
     background-color: rgba(25, 25, 25, 0.55);
     min-height: 500px;
+}
+
+#today-o {
+    background: rgba(80, 80, 80, 0.55);
 }
 
 #tomorrow {
