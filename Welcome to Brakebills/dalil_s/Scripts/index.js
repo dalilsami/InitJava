@@ -48,19 +48,19 @@ function connexion() {
 	var password;
 	if (time > "00:00 AM" && time < "05:59 AM") {
         password = "Air";
-        cookie_expire = 20124;
+        cookie_expire = 21540;
     }
 	else if (time > "06:00 AM" && time < "11:59 AM") {
         password = "Earth";
-        cookie_expire = 41724;
+        cookie_expire = 43140;
     }
 	else if (time > "12:00 AM" && time < "5:59 PM") {
         password = "Fire";
-        cookie_expire = 63324;
+        cookie_expire = 64740;
     }
 	else if (time > "06:00 PM" && time < "11:59 PM") {
         password = "Water";
-        cookie_expire = 84924;
+        cookie_expire = 86340;
     }
 	var error;
 	if (document.getElementById("error") === null) {
@@ -73,10 +73,11 @@ function connexion() {
     var hours = new Date().getHours();
     var minutes = new Date().getMinutes();
     var current_time_second = ((hours*3600) + (minutes * 60));
+    var expiration = cookie_expire - current_time_second;
 	if (login_preg != null && user_password == password)
-		document.cookie = "student =" + user_login + "; max-age =" + (cookie_expire - current_time_second);
+		document.cookie = "student =" + user_login + "; max-age =" + expiration;
 	else {
-		document.cookie = "forbidden = true; max-age=" + (cookie_expire - current_time_second);
+		document.cookie = "forbidden = true; max-age=" + expiration;
 		var message = "";
 		if (login_preg == null)
 			message += "login non valide, ";
