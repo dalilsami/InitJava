@@ -5,18 +5,21 @@ function today() {
 	requete.onreadystatechange = function () {
 		if (requete.readyState == 4 && requete.status == 200) {
 			var resultat = eval('(' + requete.responseText + ')');
+			var today = document.getElementById("today");
 			for (var i = 0; i < resultat.length; i++) {
 				var course = document.createElement("SECTION");
 				var discipline = document.createElement("SECTION");
-				var time = document.createElement("SECTION");
-				var horaire = new Date(resultat[i]['date']).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
+				var schedule = document.createElement("SECTION");
+				var time = new Date(resultat[i]['date']).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
 
-				document.body.appendChild(course);
+				today.appendChild(course);
 				course.appendChild(discipline);
-				discipline.id = resultat[i]['name'];
-				course.appendChild(time);
+				course.appendChild(schedule);
+				course.id = resultat[i]['name'];
+				discipline.className = "course-element";
 				discipline.innerHTML = resultat[i]['name'];
-				time.innerHTML = horaire;
+				discipline.className = "course-element";
+				schedule.innerHTML = time;
 			}
 		}
 	};
