@@ -1,5 +1,3 @@
-document.write("<script type='text/javascript' src='cookie.js'></script>" );
-
 function display_form() {
 	if (get_info_from_cookie("forbidden") === "") {
 		if (document.getElementById("form-container") === null) {
