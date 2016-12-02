@@ -89,14 +89,14 @@ function tomorrow() {
 }
 
 function show_today() {
-	document.getElementById("today").style.display = "block";
+	document.getElementById("today").style.display = "table";
 	document.getElementById("today-o").style.background = "rgba(80, 80, 80, 0.55)";
 	document.getElementById("tomorrow").style.display = "none";
 	document.getElementById("tomorrow-o").style.background = "rgba(25, 25, 25, 0.55)";
 }
 
 function show_tomorrow() {
-	document.getElementById("tomorrow").style.display = "block";
+	document.getElementById("tomorrow").style.display = "table";
 	document.getElementById("tomorrow-o").style.background = "rgba(80, 80, 80, 0.55)";
 	document.getElementById("today").style.display = "none";
 	document.getElementById("today-o").style.background = "rgba(25, 25, 25, 0.55)";
