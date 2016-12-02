@@ -18,7 +18,7 @@ function today() {
 				course.id = resultat[i]['name'];
 				discipline.className = "course-element";
 				discipline.innerHTML = resultat[i]['name'];
-				discipline.className = "course-element";
+				schedule.className = "course-element";
 				schedule.innerHTML = time;
 			}
 		}
