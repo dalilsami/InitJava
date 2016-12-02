@@ -16,6 +16,7 @@ function today() {
 				course.appendChild(discipline);
 				course.appendChild(schedule);
 				course.id = resultat[i]['name'];
+				course.className = "course";
 				discipline.className = "course-element";
 				discipline.innerHTML = resultat[i]['name'];
 				schedule.className = "course-element";
