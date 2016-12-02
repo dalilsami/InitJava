@@ -1,4 +1,10 @@
-function cookie_exist() {
+function cookie_exist_index() {
+	if (get_info_from_cookie("forbidden") === "")
+		if (get_info_from_cookie("student") !== "")
+			return window.location.replace("schedule.html");
+}
+
+function cookie_exist_schedule() {
 	if (get_info_from_cookie("student") === "")
 		return window.location.replace("index.html");
 }
@@ -13,5 +19,5 @@ function get_info_from_cookie(cookie_name) {
 
 function deconnexion() {
 	document.cookie = "student=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
-	cookie_exist();
+	cookie_exist_schedule();
 }
